@@ -4,6 +4,7 @@ const ctx = c.getContext("2d");
 const DEFAULT_SIZE = 80;
 const OFFSET = 10;
 const GAP = 10;
+const MAX = 11;
 
 const FRAME_DURATION = 1000 / 60;
 const getTime = typeof performance === 'function' ? performance.now : Date.now;
@@ -208,14 +209,14 @@ function combine(x, y, iter){
         if (x == 0){
             if (grid[row][col] == grid[row + direction][col]
                 && grid[row][col] != 0
-                && grid[row][col] != 11){
+                && grid[row][col] != MAX){
                 grid[row][col]++;
                 grid[row + direction][col] = 0;
             }
         }else{
             if (grid[row][col] == grid[row][col + direction]
                 && grid[row][col] != 0
-                && grid[row][col] != 11){
+                && grid[row][col] != MAX){
                 grid[row][col]++;
                 grid[row][col + direction] = 0;
             }
@@ -245,9 +246,8 @@ function newGame(){
     newTile();
     drawTiles();
     animate();
-    
-
 }
+
 newGame();
 document.addEventListener('keydown', function(event) {
     var initGrid = [
