@@ -66,6 +66,23 @@ var grid = [
     [0, 0, 0, 0]
 ];
 
+function Grid(size){
+    this.size = size;
+    this.grid = this.reset();
+}
+
+Grid.prototype.reset = function() {
+    for (i = 0; i < size; i++){
+        for (j = 0; j < size; j++){
+            this.grid[i][j] = 0;
+        }
+    }
+}
+
+Grid.prototype.randomTile = function() {
+    
+}
+
 var sizes = [
     [DEFAULT_SIZE, DEFAULT_SIZE, DEFAULT_SIZE, DEFAULT_SIZE],
     [DEFAULT_SIZE, DEFAULT_SIZE, DEFAULT_SIZE, DEFAULT_SIZE],
